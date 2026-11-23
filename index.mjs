@@ -94,7 +94,7 @@ export default {
     // 定时：每 5 分钟醒一次，tick 自己判「今天还剩几轮 / 到点没有 / 是不是刚登录」
     api.every(5 * 60_000, () => collector.tick(), '小红书表情包')
 
-    // ---- 她的工具 ----
+    // ---- 对外工具 ----
     api.tool(({ chat, sessionId }) => {
       const c = cfgAll()
       if (!c.enabled || chat?.kind === 'system') return []

@@ -121,7 +121,7 @@ return function Panel({ settings, save, toast }) {
   // 只查一次登录态（不点「扫码登录」也能查）：感觉「明明登着却说没登」时点这个
   const 查登录 = () => run('check', async () => {
     const r = await call('/account', { refresh: true })
-    if (r.loggedIn) { setQr(''); toast('查到了：已登录 ' + (r.nickname || r.userId || ''), 'ok') } 
+    if (r.loggedIn) { setQr(''); toast('查到了：已登录 ' + (r.nickname || r.userId || ''), 'ok') }
     else toast(r.message || '确实还没登录，扫码一下', 'err')
     await 刷()
   })
