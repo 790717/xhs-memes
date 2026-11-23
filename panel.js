@@ -298,7 +298,7 @@ return function Panel({ settings, save, toast }) {
         className: 'ab-textarea', style: { width: '100%', minHeight: 58 }, value: d.keywords || '',
         onChange: (e) => 改({ keywords: e.target.value }),
       })),
-    h(ui.Row, { key: 'src', label: '帖子从哪来', hint: '跟刷小红书一样，推荐流和搜索轮着来' },
+    h(ui.Row, { key: 'src', label: '帖子从哪来', hint: '推荐流和搜索轮着来' },
       h(ui.Seg, {
         value: d.source || 'mix',
         options: [{ label: '都要', value: 'mix' }, { label: '只刷推荐', value: 'feed' }, { label: '只搜关键词', value: 'search' }],

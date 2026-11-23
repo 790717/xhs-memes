@@ -1,8 +1,8 @@
 // 小红书表情包（xhs-memes）：去小红书搜「表情包 / 抽象表情包」，把图存进 QQ 收藏表情库。
 //
-// 机制照「刷小红书」（xhs）模块：专用浏览器 + 扫码登录 + 关键词轮转 + 一篇篇打开停一会儿，
-// 每天几轮 / 每轮隔多久 / 一轮多少张 / 一轮最长多久，全按它的安全口径来。
-// 只把「点赞评论」换成「存表情」：图裁成方形后交给内置的表情包模块收进 QQ 收藏。
+// 做法：专用浏览器 + 扫码登录 + 关键词轮转 + 一篇篇打开停一会儿，
+// 每天几轮 / 每轮隔多久 / 一轮多少张 / 一轮最长多久，全在面板里自己调。
+// 只做「存表情」这一件事：图裁成方形后交给内置的表情包模块收进 QQ 收藏。
 
 import { createCollect } from './lib/collect.mjs'
 import { fitSticker, RATIO_HARD_MIN, RATIO_HARD_MAX } from './lib/imaging.mjs'
@@ -21,7 +21,7 @@ export default {
     enabled: false,                 // 总开关，默认关（面板里打开）
     autoEnabled: false,             // 定时自动收，默认关
     keywords: '表情包\n抽象表情包',  // 搜索词，每行一个，一轮轮着用
-    source: 'mix',                  // 帖子从哪来：mix=推荐流和关键词轮着（照 xhs）｜feed=只刷推荐流｜search=只搜关键词
+    source: 'mix',                  // 帖子从哪来：mix=推荐流和关键词轮着｜feed=只刷推荐流｜search=只搜关键词
     targetPerRun: 20,               // 一轮最多存几张，存够就停
     maxMinutes: 15,                 // 一轮最长跑多久（分钟），到点收手
     perNote: 9,                     // 一篇笔记最多取几张图（图集最长 99 张）
@@ -67,7 +67,7 @@ export default {
       return stickers.remove(String(md5 || ''))
     }
 
-    // 暂停汇报：先问出站治理面（api.proactive），不支持就 hub.sendText 直发（照 xhs 的口径）
+    // 暂停汇报：先问出站治理面（api.proactive），不支持就 hub.sendText 直发
     const sendOwnerQQ = async (text, itemId, logTag) => {
       const to = `private:${api.config().ownerQQ}`
       if (api.proactive?.submit) {
