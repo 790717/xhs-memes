@@ -1,0 +1,26 @@
+{
+  "id": "xhs-memes",
+  "name": "大肥鱼自动保存表情包",
+  "version": "0.4.1",
+  "description": "自动刷小红书、按关键词搜表情包，把图裁到合适尺寸后直接上传到大肥鱼的表情包里（QQ 收藏表情）；存够就停，同一张图和同一个帖子都不会重复。",
+  "category": "platform",
+  "tags": [
+    "小红书",
+    "表情包",
+    "收藏"
+  ],
+  "author": "Aurabot",
+  "license": "MIT",
+  "api": 1,
+  "minPluginVersion": "1.2.0",
+  "requires": [
+    "stickers"
+  ],
+  "capabilities": [
+    "network",
+    "filesystem",
+    "process",
+    "plugin-config",
+    "plugin-internals"
+  ]
+}
